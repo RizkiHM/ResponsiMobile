@@ -1,0 +1,7 @@
+{
+  "name": "ResponsiMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
