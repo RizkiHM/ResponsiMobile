@@ -1,0 +1,23 @@
+<ion-header  [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-button>
+    <ion-title>Halaman login</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content  [fullscreen]="true">
+  <ion-item lines="full">
+    <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" [(ngModel)]="username" required="required"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" required="required"></ion-input>
+    </ion-item>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="primary" expand="block" (click)="prosesLogin()">Login</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

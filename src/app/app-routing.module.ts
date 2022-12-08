@@ -1,16 +1,34 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutoLoginGuard } from './guards/auto-login.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
+  //{
+  //  path: '',
+  //  redirectTo: 'folder/login',
+  //  pathMatch: 'full'
+  //},
   {
-    path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule), canLoad: [AuthGuard]
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule), canLoad: [AutoLoginGuard]
+  },
+  {
+    path: 'fakultas',
+    loadChildren: () => import('./fakultas/fakultas.module').then( m => m.FakultasPageModule)
+  },
+  {
+    path: 'fakultas-tambah',
+    loadChildren: () => import('./fakultas-tambah/fakultas-tambah.module').then( m => m.FakultasTambahPageModule)
+  },
+  {
+    path: 'fakultas-edit',
+    loadChildren: () => import('./fakultas-edit/fakultas-edit.module').then( m => m.FakultasEditPageModule)
+  },
 ];
 
 @NgModule({
